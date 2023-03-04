@@ -16,4 +16,20 @@ class Entity {
     }
 
 
+    public void moveLeft() {
+        this.x-=Const.FSPEED;
+    }
+
+    public void moveRight() {
+        this.x+=Const.FSPEED;
+    }
+
+    public void moveDown() {
+        this.y+=Const.FSPEED;
+    }
+
+    public void moveUp() {
+        this.y-=Const.FSPEED;
+    }
+
 }
