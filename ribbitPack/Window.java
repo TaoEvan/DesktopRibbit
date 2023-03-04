@@ -1,14 +1,16 @@
+package ribbitPack;
 import javafx.scene.paint.Color;
 
 class Window extends Sprite {
     public String hexValue = "#000000"; // You do need the hash
     public Color colour;
     public TextBox text;
+    public String description;
     
-    public Window(String name, int x, int y, int width, int height, Color colour) {
+    public Window(String name, int x, int y, int width, int height, Color colour, String description) {
         super(name, x, y, width, height);
         this.colour = colour;
-        this.text = new TextBox(x, y);
+        this.text = new TextBox(x, y, description);
     }
 
     public void open() {

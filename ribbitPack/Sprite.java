@@ -1,3 +1,5 @@
+package ribbitPack;
+
 class Sprite {
     public String name;
     public int x;
