@@ -1,25 +1,12 @@
-import java.awt.*; 
-import javax.swing.*; 
-
-
-
 public class Main{    
-    JFrame frame; 
-    JLayeredPane mainLayeredPane; 
     public static void main(String[] args){
-        Main main = new Main();
+        MainScreen main = new MainScreen();
         while (true){
 
         }
 
     }
-
-
-    Main(){
-        frame = new JFrame(); 
-        mainLayeredPane = new JLayeredPane(); 
-    }
-
+    private Main(){}
 
 
 }
