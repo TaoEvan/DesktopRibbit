@@ -2,29 +2,31 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JLabel;
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import javax.swing.*;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-public class TitleMenu extends JFrame{
+public class TitleMenu extends JPanel{
     BufferedImage background;
+    JButton startButton;
     public void initButtons(){
-        ImageIcon startIcon = new ImageIcon("./Assets/Icons/folder.png");
-        JButton startButton = new JButton(startIcon);
+        ImageIcon startIcon = null;
+        try{
+            startIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("./Assets/Icons/folder.png")));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        startButton = new JButton(startIcon);
         startButton.setBorderPainted(false);
         startButton.setFocusPainted(false);
         startButton.setContentAreaFilled(false);
         this.add(startButton);
         startButton.setLocation(500,500);
+        startButton.setPreferredSize(new Dimension(100,100));
+        startButton.setVisible(true);
     }
     public TitleMenu() {
-        GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice device = graphics.getDefaultScreenDevice();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        device.setFullScreenWindow(this);
+        this.setPreferredSize(Const.SCREENSIZE);
         try{
             background = ImageIO.read(getClass().getResourceAsStream("Assets/General/Background.png"));
         }catch(IOException e){
@@ -33,8 +35,11 @@ public class TitleMenu extends JFrame{
         this.setLayout(null);
         initButtons();
         this.setVisible(true);
+        this.startButton.setVisible(false);
+        this.startButton.setVisible(true);
     }
 
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponents(g);
         Graphics2D g2d = (Graphics2D)g;
@@ -42,5 +47,8 @@ public class TitleMenu extends JFrame{
         setBackground(Color.BLACK);
 
         g2d.drawImage(background, 0, 0, (int)Const.WIDTH, (int)Const.HEIGHT, null);
+
+        revalidate();
+        repaint();
     }
 }
