@@ -8,8 +8,8 @@ class Window extends Entity {
     public TextBox text;
     public String description;
     
-    public Window(String name, int x, int y, int width, int height, Color colour, String description) {
-        super(name, x, y, width, height);
+    public Window(int x, int y, int width, int height, int xVel, int yVel, Color colour, String description) {
+        super(x, y, width, height, xVel, yVel);
         this.colour = colour;
         this.text = new TextBox(x, y, description);
     }
