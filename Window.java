@@ -1,4 +1,4 @@
-import javafx.scene.paint.Color;
+import java.awt.Color;
 
 class Window extends Sprite {
     public String hexValue = "#000000"; // You do need the hash
