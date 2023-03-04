@@ -1,7 +1,8 @@
 package ribbitPack;
-import javafx.scene.paint.Color;
+// fx and swing are not compatible
+import java.awt.Color;
 
-class Window extends Sprite {
+class Window extends Entity {
     public String hexValue = "#000000"; // You do need the hash
     public Color colour;
     public TextBox text;
